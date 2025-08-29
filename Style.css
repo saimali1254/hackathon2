@@ -1,0 +1,727 @@
+/* CSS Variables for Theming */
+:root {
+    --primary: #6c63ff;
+    --secondary: #4ecdc4;
+    --accent: #ff6b6b;
+    --light: #f7f9fc;
+    --dark: #2d3436;
+    --text: #2d3436;
+    --bg: #ffffff;
+    --card-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --gradient: linear-gradient(135deg, #6c63ff 0%, #4ecdc4 100%);
+    --transition: all 0.3s ease;
+}
+
+.dark-mode {
+    --primary: #8a85ff;
+    --secondary: #70d6ce;
+    --accent: #ff8e8e;
+    --light: #1e2124;
+    --dark: #f5f6fa;
+    --text: #f5f6fa;
+    --bg: #121416;
+    --card-bg: #1e2124;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --gradient: linear-gradient(135deg, #8a85ff 0%, #70d6ce 100%);
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: var(--transition);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: fadeIn 1s ease;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--gradient);
+    color: white;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* Header & Navigation */
+header {
+    background: var(--bg);
+    box-shadow: 0 2px 10px var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.logo i {
+    margin-right: 0.5rem;
+    color: var(--accent);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+nav a:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: var(--transition);
+}
+
+nav a:hover:after {
+    width: 100%;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-toggle {
+    background: var(--card-bg);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px var(--shadow);
+    color: var(--text);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Hero Section */
+.hero {
+    padding: 8rem 0 5rem;
+    background: var(--light);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.hero-content {
+    flex: 1;
+    animation: slideInLeft 1s ease;
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+    height: 400px;
+}
+
+.main-hero-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-hero-image img {
+    max-width: 100%;
+    height: auto;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-card {
+    position: absolute;
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 5px 20px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    text-align: center;
+    z-index: 2;
+}
+
+.floating-card i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.floating-card h3 {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+#card1 {
+    top: 0;
+    left: 0;
+    background: rgba(108, 99, 255, 0.1);
+    color: var(--primary);
+    animation: float 5s ease-in-out infinite;
+}
+
+#card2 {
+    top: 30%;
+    right: 0;
+    background: rgba(255, 107, 107, 0.1);
+    color: var(--accent);
+    animation: float 4s ease-in-out infinite 1s;
+}
+
+#card3 {
+    bottom: 0;
+    left: 20%;
+    background: rgba(78, 205, 196, 0.1);
+    color: var(--secondary);
+    animation: float 5.5s ease-in-out infinite 0.5s;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Features Section */
+.features {
+    padding: 5rem 0;
+    background: var(--bg);
+}
+
+.section-description {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px var(--shadow);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    background: var(--gradient);
+    color: white;
+    font-size: 2rem;
+}
+
+.feature-card h3 {
+    color: var(--primary);
+}
+
+.feature-btn {
+    margin-top: auto;
+    padding: 0.5rem 1.5rem;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.feature-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Voice Assistant Section */
+.voice-assistant-section {
+    padding: 5rem 0;
+    background: var(--light);
+}
+
+.voice-assistant-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.voice-demo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 300px;
+}
+
+.voice-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(108, 99, 255, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.voice-waves {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+}
+
+.wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0;
+    animation: sonar 3s infinite;
+}
+
+.wave:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.wave:nth-child(3) {
+    animation-delay: 2s;
+}
+
+.voice-description {
+    flex: 1;
+}
+
+.voice-commands {
+    margin: 1.5rem 0;
+}
+
+.voice-commands ul {
+    list-style: none;
+    margin-left: 1rem;
+}
+
+.voice-commands li {
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.voice-commands li:before {
+    content: '🗣️';
+    position: absolute;
+    left: -1.5rem;
+}
+
+/* Voice Widget */
+.voice-widget {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--card-bg);
+    border-radius: 50px;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 5px 20px var(--shadow);
+    z-index: 999;
+    cursor: pointer;
+}
+
+.voice-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.voice-status {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.auth-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.auth-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { 
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes sonar {
+    0% { 
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% { 
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .voice-assistant-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+    }
+    
+    .header-controls {
+        gap: 0.5rem;
+    }
+    
+    .auth-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    header .container {
+        padding: 1rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    nav {
+        display: none;
+    }
+    
+    .hero {
+        padding: 6rem 0 3rem;
+    }
+    
+    .floating-card {
+        width: 100px;
+        padding: 0.8rem;
+    }
+    
+    .floating-card i {
+        font-size: 1.5rem;
+    }
+    
+    .floating-card h3 {
+        font-size: 0.8rem;
+    }
+}
